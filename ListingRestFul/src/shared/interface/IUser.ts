@@ -2,7 +2,7 @@ import { IAddress } from './IAddress';
 import { ICompany } from './ICompany';
 
 export interface IUser {
-    id?: number;
+    id: number;
     name: string;
     username: string;
     email: string;
