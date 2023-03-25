@@ -1,26 +1,38 @@
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useApi } from '../../shared/hooks/useApi';
 import { IPost } from '../../shared/interface/IPost';
-import { StyledPost, FlexContainer } from './feed.styled';
+import { IUser } from '../../shared/interface/IUser';
+import { filteredPost } from '../../shared/services/FilteredPost';
+import { StyledPost } from './styles/feed.styled';
+import { FlexContainer } from '../../shared/components/FlexContainer/flexContainer.styled';
 
 export const Feed = () => {
     const [posts, setPosts] = useState<IPost[]>([]);
-    const api = useApi();
-    const loadInformation = async () => {
-        const json = await api.getAllPosts();
-        setPosts(json);
-    };
+    const [users, setUsers] = useState<IUser[]>([]);
     useEffect(() => {
         loadInformation();
     }, []);
+    const api = useApi();
+
+    const loadInformation = async () => {
+        const allPosts = await api.getAllPosts();
+        const allUsers = await api.getAllUsers();
+        setPosts(allPosts);
+        setUsers(allUsers);
+    };
+
+    const filteredPosts = filteredPost(users, posts);
 
     return (
         <FlexContainer>
-            {posts.map((post) => (
+            {filteredPosts.map((post, index) => (
                 <StyledPost
-                    username={`${post.userId}`}
+                    key={index}
+                    username={post.name}
                     title={post.title}
                     body={post.body}
+                    userId={post.userId}
+                    postId={post.postId}
                 />
             ))}
         </FlexContainer>

@@ -1,10 +1,32 @@
 import { PostProps } from './types/PostProps';
-export const Post = ({ username, title, body, className }: PostProps) => {
+import { useNavigate } from 'react-router-dom';
+export const Post = ({
+    userId,
+    postId,
+    username,
+    title,
+    body,
+    className,
+}: PostProps) => {
+    const navigate = useNavigate();
     return (
         <div className={className}>
-            <h2>{username}</h2>
+            <a
+                onClick={() => {
+                    navigate(`profile/${userId}`);
+                }}
+            >
+                {username}
+            </a>
             <h3>{title}</h3>
             <p>{body}</p>
+            <a
+                onClick={() => {
+                    navigate(`post/${postId}`);
+                }}
+            >
+                Comentários
+            </a>
         </div>
     );
 };
