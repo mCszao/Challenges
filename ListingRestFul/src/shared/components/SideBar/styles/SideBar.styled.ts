@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { ItemResult } from '../itemResult';
 
 export const StyledSideBar = styled.div`
-    width: 30vw;
+    min-width: 30vw;
     height: 90vh;
     position: fixed;
     top: 0;
@@ -39,8 +40,31 @@ export const SearchInput = styled.input`
     background-color: #cce9f4;
     border-radius: 0.5rem;
     margin: 1.5rem;
+    text-align: center;
 
     &&:focus {
         background-color: white;
+    }
+`;
+
+export const BoxResult = styled.ul`
+    width: 80%;
+    height: 80%;
+    background-color: #cce9f4;
+    margin: -1rem 2rem 2rem 2rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+`;
+
+export const StyledItemResult = styled(ItemResult)`
+    width: 100%;
+    height: 5rem;
+    background-color: white;
+    padding: 1rem;
+
+    &&:hover {
+        border-bottom: 1px solid gray;
+        background-color: #cce9f4;
+        cursor: pointer;
     }
 `;
