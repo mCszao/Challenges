@@ -4,6 +4,7 @@ import { ButtonBackHome } from '../../shared/components/ButtonBackHome/buttonBac
 import { FlexContainer } from '../../shared/components/FlexContainer/flexContainer.styled';
 import { useApi } from '../../shared/hooks/useApi';
 import { IUser } from '../../shared/interface/IUser';
+import { ProfileInfos, StyledGeneralInfos } from './styles/Profile.styled';
 
 export const Profile = () => {
     const params = useParams();
@@ -11,8 +12,8 @@ export const Profile = () => {
     const [user, setUser] = useState<IUser>();
 
     const loadInfo = async () => {
-        const json = await api.getUserById(params.slug!);
-        setUser(json);
+        const actualUser = await api.getUserById(params.slug!);
+        setUser(actualUser);
     };
     useEffect(() => {
         loadInfo();
@@ -21,7 +22,18 @@ export const Profile = () => {
     return (
         <FlexContainer>
             <ButtonBackHome />
-            <h2>Esse é o profile do {user?.name}</h2>
+            <ProfileInfos>
+                {user && (
+                    <StyledGeneralInfos
+                        name={user?.name}
+                        username={user?.username}
+                        email={user?.email}
+                    />
+                )}
+                <div>localization info</div>
+                <div>contact infos</div>
+                <div>enterprise infos</div>
+            </ProfileInfos>
         </FlexContainer>
     );
 };
