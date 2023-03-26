@@ -8,7 +8,7 @@ export const MainPost = styled.div`
     justify-content: center;
     margin-top: 1rem;
     gap: 1rem;
-    width: 80%;
+    width: 70%;
     border-bottom: 1px solid gray;
 
     p {

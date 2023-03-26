@@ -9,7 +9,7 @@ import {
     BoxComments,
     MainPost,
     StyledBoxCommentary,
-} from './styles/postFull.styled';
+} from './styles/Commentary.styled';
 
 export const Comments = () => {
     const params = useParams();
