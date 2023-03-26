@@ -28,6 +28,7 @@ export const StyledPost = styled(Post)`
     }
     &&:nth-child(1) {
         margin-top: 1rem;
+        border-radius: 1rem 1rem 0 0;
     }
 
     a {
@@ -36,5 +37,15 @@ export const StyledPost = styled(Post)`
         cursor: pointer;
         font-size: 1.5rem;
         font-weight: 400;
+    }
+`;
+
+export const LinkCommentary = styled.a`
+    align-self: flex-end;
+    transition: all 0.5s ease;
+
+    &&:hover {
+        transform: translateY(15%);
+        color: #80a7d1;
     }
 `;

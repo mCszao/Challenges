@@ -1,5 +1,6 @@
 import { PostProps } from './types/PostProps';
 import { useNavigate } from 'react-router-dom';
+import { LinkCommentary } from './styles/feed.styled';
 export const Post = ({
     userId,
     postId,
@@ -20,13 +21,13 @@ export const Post = ({
             </a>
             <h3>{title}</h3>
             <p>{body}</p>
-            <a
+            <LinkCommentary
                 onClick={() => {
                     navigate(`post/${postId}`);
                 }}
             >
-                Comentários
-            </a>
+                comentários
+            </LinkCommentary>
         </div>
     );
 };
