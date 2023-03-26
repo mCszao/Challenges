@@ -1,4 +1,5 @@
 import { Router } from './routes/router';
+
 import { SideBar } from './shared/components/SideBar/sideBar';
 
 export const Root = () => {

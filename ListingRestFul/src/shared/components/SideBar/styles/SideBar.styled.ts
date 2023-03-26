@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { ItemResult } from '../itemResult';
 
 export const StyledSideBar = styled.div`
-    min-width: 30vw;
+    width: 30vw;
+    max-width: 40vw;
     height: 90vh;
     position: fixed;
     top: 0;
