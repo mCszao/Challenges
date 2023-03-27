@@ -5,5 +5,6 @@ export interface IAddress {
     suite: string;
     city: string;
     zipcode: string;
-    geo: IGeo;
+    geo?: IGeo;
+    className?: string;
 }
