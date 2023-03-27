@@ -1,13 +1,15 @@
 import styled from 'styled-components';
-export const FlexContainer = styled.div`
+import { FlexContainerProps } from './types/FlexContainerProps';
+export const FlexContainer = styled.div<FlexContainerProps>`
     display: flex;
     flex-direction: column;
+
     align-items: center;
-    justify-self: flex-end;
-    align-self: flex-end;
     width: 65vw;
     max-width: 75vw;
-    border-right: 1px solid gray;
+    background-color: ${(props) => (props.bgColor ? props.bgColor : 'none')};
+    border-right: ${(props) =>
+        props.withoutBorder ? 'none' : '1px solid gray'};
 
     @media (max-width: 720px) {
         width: 100%;
