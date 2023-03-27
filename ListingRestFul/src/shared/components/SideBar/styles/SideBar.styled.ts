@@ -4,7 +4,7 @@ import { ItemResult } from '../itemResult';
 export const StyledSideBar = styled.div`
     width: 30vw;
     max-width: 40vw;
-    height: 90vh;
+    height: 80vh;
     position: fixed;
     top: 0;
     right: 0;
@@ -50,11 +50,12 @@ export const SearchInput = styled.input`
 
 export const BoxResult = styled.ul`
     width: 80%;
-    height: 80%;
     background-color: #cce9f4;
-    margin: -1rem 2rem 2rem 2rem;
+    margin: 1rem 2rem 2rem 2rem;
     border-radius: 0.5rem;
     overflow-x: auto;
+
+    list-style: none;
 `;
 
 export const StyledItemResult = styled(ItemResult)`
