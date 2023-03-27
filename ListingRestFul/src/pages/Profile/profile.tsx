@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ButtonBackHome } from '../../shared/components/ButtonBackHome/buttonBackHome';
 import { FlexContainer } from '../../shared/components/FlexContainer/flexContainer.styled';
+import { ImgLoading } from '../../shared/components/ImgLoading/imgLoading';
 import { useApi } from '../../shared/hooks/useApi';
 import { IUser } from '../../shared/interface/IUser';
+import ReactLogo from '../../assets/images/react.svg';
 
 import {
     ProfileInfos,
@@ -30,6 +32,7 @@ export const Profile = () => {
         <FlexContainer>
             <ButtonBackHome />
             <ProfileInfos>
+                {api.loading && <ImgLoading src={ReactLogo} />}
                 {user && (
                     <StyledGeneralInfos
                         name={user?.name}

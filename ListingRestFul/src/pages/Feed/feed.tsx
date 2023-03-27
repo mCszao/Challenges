@@ -10,6 +10,8 @@ import {
     BoxResult,
     StyledItemResult,
 } from '../../shared/components/SideBar/styles/SideBar.styled';
+import { ImgLoading } from '../../shared/components/ImgLoading/imgLoading';
+import ReactLogo from '../../assets/images/react.svg';
 
 export const Feed = () => {
     const [posts, setPosts] = useState<IPost[]>([]);
@@ -31,6 +33,7 @@ export const Feed = () => {
 
     return (
         <FlexContainer>
+            {api.loading && <ImgLoading src={ReactLogo} />}
             {isOpen ? (
                 filteredPosts.map((post, index) => (
                     <StyledPost
@@ -44,6 +47,7 @@ export const Feed = () => {
                 ))
             ) : (
                 <FlexContainer>
+                    {api.loading && <ImgLoading src={ReactLogo} />}
                     <BoxResult>
                         {users.map((user, index) => (
                             <StyledItemResult

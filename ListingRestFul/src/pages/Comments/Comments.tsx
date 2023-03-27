@@ -10,6 +10,8 @@ import {
     MainPost,
     StyledBoxCommentary,
 } from './styles/Commentary.styled';
+import ReactLogo from '../../assets/images/react.svg';
+import { ImgLoading } from '../../shared/components/ImgLoading/imgLoading';
 
 export const Comments = () => {
     const params = useParams();
@@ -28,6 +30,7 @@ export const Comments = () => {
     }, []);
     return (
         <FlexContainer>
+            {api.loading && <ImgLoading src={ReactLogo} />}
             <ButtonBackHome />
             <MainPost>
                 <h1>{post?.title}</h1>

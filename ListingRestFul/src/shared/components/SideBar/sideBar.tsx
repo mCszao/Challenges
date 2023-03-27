@@ -9,6 +9,8 @@ import { FcSearch } from 'react-icons/fc';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { IUser } from '../../interface/IUser';
 import { useApi } from '../../hooks/useApi';
+import { ImgLoading } from '../ImgLoading/imgLoading';
+import ReactLogo from '../../../assets/images/react.svg';
 export const SideBar = () => {
     const [open, setOpen] = useState(false);
     const [users, setUsers] = useState<IUser[]>([]);
@@ -37,6 +39,7 @@ export const SideBar = () => {
     }, []);
     return (
         <StyledSideBar>
+            {api.loading && <ImgLoading src={ReactLogo} />}
             <InputContainer>
                 <SearchInput
                     type='text'
