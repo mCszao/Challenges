@@ -16,9 +16,8 @@ export const StyledPost = styled(Post)`
 
     padding: 1rem;
 
-    box-sizing: border-box;
     @media (max-width: 720px) {
-        width: 100vw;
+        width: 90vw;
         display: table;
 
         border-top: 1px solid gray;
