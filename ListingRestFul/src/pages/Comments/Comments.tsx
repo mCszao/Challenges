@@ -9,7 +9,7 @@ import {
     BoxComments,
     MainPost,
     StyledBoxCommentary,
-} from './styles/Commentary.styled';
+} from './styles/commentary.styled';
 import ReactLogo from '../../assets/images/react.svg';
 import { ImgLoading } from '../../shared/components/ImgLoading/imgLoading';
 
