@@ -3,4 +3,5 @@ export type GeneralInfosProps = {
     username: string;
     email: string;
     className?: string;
+    imageLink?: string;
 };
