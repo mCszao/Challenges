@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Feed } from '../pages/Feed/feed';
 import { Comments } from '../pages/Comments/Comments';
 import { Profile } from '../pages/Profile/profile';
+
 export const Router = () => {
     return (
         <Routes>
