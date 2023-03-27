@@ -4,7 +4,14 @@ import { ButtonBackHome } from '../../shared/components/ButtonBackHome/buttonBac
 import { FlexContainer } from '../../shared/components/FlexContainer/flexContainer.styled';
 import { useApi } from '../../shared/hooks/useApi';
 import { IUser } from '../../shared/interface/IUser';
-import { ProfileInfos, StyledGeneralInfos } from './styles/Profile.styled';
+
+import {
+    ProfileInfos,
+    StyledGeneralInfos,
+    StyledLocalizationInfos,
+    StyledContactInfos,
+    StyledWorkInfos,
+} from './styles/Profile.styled';
 
 export const Profile = () => {
     const params = useParams();
@@ -30,9 +37,29 @@ export const Profile = () => {
                         email={user?.email}
                     />
                 )}
-                <div>localization info</div>
-                <div>contact infos</div>
-                <div>enterprise infos</div>
+                <FlexContainer withoutBorder={true}>
+                    {user?.address && (
+                        <StyledLocalizationInfos
+                            city={user?.address?.city}
+                            street={user?.address?.street}
+                            suite={user?.address?.suite}
+                            zipcode={user?.address?.zipcode}
+                        />
+                    )}
+                    {user?.phone && (
+                        <StyledContactInfos
+                            phone={user?.phone}
+                            website={user.website}
+                        />
+                    )}
+                    {user?.company && (
+                        <StyledWorkInfos
+                            name={user?.company?.name}
+                            catchPhrase={user?.company?.catchPhrase}
+                            bs={user.company.bs}
+                        />
+                    )}
+                </FlexContainer>
             </ProfileInfos>
         </FlexContainer>
     );
