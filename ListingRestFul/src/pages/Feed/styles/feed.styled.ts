@@ -75,6 +75,12 @@ export const StyledResponsiveIcon = styled.div<ResponsiveIconProps>`
     top: 1%;
     right: 1%;
     background-color: #80a7d1;
+    transition: all 0.5s ease;
+
+    :hover {
+        cursor: pointer;
+        transform: scale(1.1);
+    }
 
     @media (max-width: 720px) {
         display: flex;
